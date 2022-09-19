@@ -1,6 +1,10 @@
 <?php
+    session_start();
 
-   
+    if (isset($_SESSION['msg'])) {
+        echo $_SESSION['msg'];
+        unset($_SESSION['msg']);
+    }
 
 
     
@@ -20,19 +24,23 @@
 </head>
 <body>
     
+    
         <form method="POST" action="../Controller/CadastroController.php">
 
             <label>Nome</label>
-            <input type="text" name="nome" id="nome"><br><br>
+            <input type="text" name="nome" value="<?php if(isset($_SESSION['nome'])){ echo $_SESSION['nome'];}?>" 
+            ><br><br>
 
             <label>RM</label>
-            <input type="text" name="rm"><br><br>
+            <input type="text" name="rm" value="<?php if(isset($_SESSION['rm'])){ echo $_SESSION['rm'];}?>"><br><br>
 
             <label>Email insitucional</label>
-            <input type="text" name="email"><br><br>
+            <input type="email" name="email" 
+            value="<?php if(isset($_SESSION['email'])){ echo $_SESSION['email'];}?>" >
+            <br><br>
 
             <label>Curso</label>
-            <select name="curso">
+            <select name="curso" >
                 <option value=""></option>
                 <option value="Administração">Administração</option>
                 <option value="Desenvolvimento de sistemas">Desenvolvimento de Sistemas</option>                
