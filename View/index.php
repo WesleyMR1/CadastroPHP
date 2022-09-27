@@ -28,15 +28,15 @@
         <form method="POST" action="../Controller/CadastroController.php">
 
             <label>Nome</label>
-            <input type="text" name="nome" value="<?php if(isset($_SESSION['nome'])){ echo $_SESSION['nome'];}?>" 
+            <input type="text" name="nome" value="<?php if(isset($_SESSION['nome'])){ echo $_SESSION['nome'];}unset($_SESSION['nome']);?>" 
             ><br><br>
 
             <label>RM</label>
-            <input type="text" name="rm" value="<?php if(isset($_SESSION['rm'])){ echo $_SESSION['rm'];}?>"><br><br>
+            <input type="text" name="rm" value="<?php if(isset($_SESSION['rm'])){ echo $_SESSION['rm'];}unset($_SESSION['rm']);?>"><br><br>
 
             <label>Email insitucional</label>
             <input type="email" name="email" 
-            value="<?php if(isset($_SESSION['email'])){ echo $_SESSION['email'];}?>" >
+            value="<?php if(isset($_SESSION['email'])){ echo $_SESSION['email'];}unset($_SESSION['email']);?>" >
             <br><br>
 
             <label>Curso</label>

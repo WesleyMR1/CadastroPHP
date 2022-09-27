@@ -56,7 +56,7 @@
 
                             $sql = "Insert into usuario(rm, nome, email, curso, periodo) values (:rm, :nome, :email, :curso, :periodo);";
                             $res = $pdo->prepare($sql);
-                            $res->bindValue(':rm', 51454);
+                            $res->bindValue(':rm', $_POST['rm']);
                             $res->bindValue(':nome', $_POST['nome']);
                             $res->bindValue(':email', $_POST['email']);
                             $res->bindValue(':curso', $_POST['curso']);
