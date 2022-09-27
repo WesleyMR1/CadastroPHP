@@ -3,9 +3,9 @@
 
     //retornar em forma de session e depois destruir(unset)
     
-    require '../Controller/DAO/conexao.php';
+    include('../Controller/DAO/conexao.php');
     
-
+    $pdo = conectar();
 
     $formulario = [
         "nome" => $_POST['nome'],
@@ -54,13 +54,13 @@
                         }else{
                             //verificação de campos concluida
 
-                            $sql = "Insert into usuario(rm, nome email, curso, periodo) values (:rm, :nome, :email, :curso, :periodo);";
+                            $sql = "Insert into usuario(rm, nome, email, curso, periodo) values (:rm, :nome, :email, :curso, :periodo);";
                             $res = $pdo->prepare($sql);
-                            $res->bindParam(':rm', $_POST['periodo']);
-                            $res->bindParam(':nome', $_POST['periodo']);
-                            $res->bindParam(':email', $_POST['periodo']);
-                            $res->bindParam(':curso', $_POST['periodo']);
-                            $res->bindParam(':periodo', $_POST['periodo']);
+                            $res->bindValue(':rm', 51454);
+                            $res->bindValue(':nome', $_POST['nome']);
+                            $res->bindValue(':email', $_POST['email']);
+                            $res->bindValue(':curso', $_POST['curso']);
+                            $res->bindValue(':periodo', $_POST['periodo']);
                             $res->execute();
                             echo "tudo certo";
                         }

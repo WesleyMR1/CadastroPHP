@@ -1,14 +1,23 @@
 <?php
-$dsn = "mysql:dbname=Cadastro;host=localhost";
-$username = "root";
-$password = "";
 
-try {
-    $pdo = new PDO($dsn, $username, $password);
+function conectar(){
 
-} catch (PDOException $e) {
-    echo "Error!<br> Error num: ".$e->getMessage()."<br/>";
+    $dsn = "mysql:dbname=Cadastro;host=localhost";
+    $username = "root";
+    $password = "";
+    
+    try {
+        $pdo = new PDO($dsn, $username, $password);
+        $pdo->exec("SET CHARACTER SET utf8");
+    
+    } catch (PDOException $e) {
+        echo "Error: ".$e;
+    }
+
+    return $pdo;
+
 }
+
 
 
 ?>
